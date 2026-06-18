@@ -1,0 +1,77 @@
+{
+  "label": "western-rising-2026",
+  "lens": "서양권 라이징 인디 (힙합/R&B/POP) · 중국 화이트스페이스",
+  "weights": {"streaming":3,"genre":3,"label":3,"followers":2,"catalog":2,"china":1},
+  "artists": [
+    {
+      "name": "DESTIN CONRAD",
+      "subscores": {"streaming":70,"genre":92,"label":80,"followers":68,"catalog":80,"china":65},
+      "stored": {"age":null,"nationality":"미국(USA)"},
+      "evidence": {
+        "streaming":"Spotify 월 140만 (MusicMetricsVault/Viberate, 중간)",
+        "genre":"R&B/컨템포러리 R&B (높음)",
+        "label":"인디 계열 — EP 4장 후 데뷔작, 명확한 메이저 소속 미확인 (중간)",
+        "followers":"IG 421K + YT 253K (yt-dlp 직접확인, 높음); IG 50만 미만",
+        "catalog":"EP 4장 + 데뷔 'Love On Digital' 그래미 노미(Best Progressive R&B) (높음)",
+        "china":"미국 아티스트, 중국 미진출=화이트스페이스, 활동 가능. 스무스 R&B라 중국 R&B 수요와 맞음 (중간)"
+      },
+      "notes":"인디 계열 + R&B 적합 + 그래미 노미. 중국 화이트스페이스로 들여올 가치 큼."
+    },
+    {
+      "name": "Laila!",
+      "subscores": {"streaming":80,"genre":90,"label":90,"followers":62,"catalog":78,"china":65},
+      "stored": {"age":18,"nationality":"미국(USA)"},
+      "evidence": {
+        "streaming":"'Not My Problem' 단일 62M + 누적 1억+ 스트림; 월청취 절대수치 미확정 (Grammy/검색, 중간)",
+        "genre":"R&B (높음)",
+        "label":"완전 독립 — 셀프프로듀스('Gap Year!' GarageBand 제작), Yasiin Bey 딸이나 독립 (Rolling Stone, 높음)",
+        "followers":"IG 239K(@prodlaila) + YT 278K (yt-dlp 직접확인, 높음)",
+        "catalog":"'Gap Year!' 앨범 + 'Like That' #1 TikTok Top50 + 1억+ 스트림(18세로선 강함) (높음)",
+        "china":"미국, 중국 미진출=화이트스페이스, 활동 가능 (중간)"
+      },
+      "notes":"18세 완전독립 + 1억 스트림 모멘텀. 인디라 직접 계약 가장 용이."
+    },
+    {
+      "name": "Khamari",
+      "subscores": {"streaming":88,"genre":90,"label":55,"followers":null,"catalog":75,"china":65},
+      "stored": {"age":null,"nationality":"미국(USA)"},
+      "evidence": {
+        "streaming":"Spotify 월 400만 피크('Ariel' 후); 'Another Round' 60M+, 'The Four of Us' 20M+ (검색, 중간)",
+        "genre":"R&B (높음)",
+        "label":"초기 독립이나 2023 '메이저 레이블 데뷔(A Brief Nirvana)' 정황 → 메이저 계열 가능성 (낮음·재확인)",
+        "followers":"IG/YT 미확인 → 제외",
+        "catalog":"데뷔 'Ariel' + 60M/20M 트랙, 안정적 반응 (중간)",
+        "china":"미국, 중국 미진출=화이트스페이스, 스무스 R&B 적합 (중간)"
+      },
+      "notes":"풀 내 스트리밍 최상위지만 메이저 계열 가능성이 라벨 점수를 깎음. 재확인 필요."
+    },
+    {
+      "name": "SAILORR",
+      "subscores": {"streaming":68,"genre":85,"label":45,"followers":null,"catalog":72,"china":65},
+      "stored": {"age":null,"nationality":"미국(USA)"},
+      "evidence": {
+        "streaming":"'Pookie's Requiem' 39M+ 스트림(feat. Summer Walker), Doja Cat 투어; 월청취 미확정 (Wikipedia, 낮음)",
+        "genre":"alt-R&B (높음)",
+        "label":"BuVision → 2025.3 Atlantic Music Group 합병 = 메이저 (Wikipedia, 높음)",
+        "followers":"IG/YT 미확인 → 제외",
+        "catalog":"데뷔 'From Florida's Finest' + 디럭스, 빌보드 차트 (중간)",
+        "china":"미국, 중국 미진출=화이트스페이스 (중간)"
+      },
+      "notes":"바이럴 + Doja 투어로 모멘텀 좋으나 Atlantic 소속이라 직접계약 어려움(레이블 경유)."
+    },
+    {
+      "name": "Lay Bankz",
+      "subscores": {"streaming":70,"genre":88,"label":45,"followers":90,"catalog":68,"china":58},
+      "stored": {"age":21,"nationality":"미국(USA)"},
+      "evidence": {
+        "streaming":"'Tell Ur Girlfriend' Billboard Hot100 진입, TikTok 바이럴; 월청취 미확정 (Wikipedia, 낮음)",
+        "genre":"R&B/랩/클럽 (높음)",
+        "label":"Artist Partner Group(APG) 소속(2022) = 메이저 계열 (Wikipedia, 높음)",
+        "followers":"IG ~989K(@laybankz, 50만↑ 상위 등급) (Wikipedia/IG, 중간)",
+        "catalog":"EP·믹스테입 + Hot100 진입곡, TikTok 다수 바이럴 (중간)",
+        "china":"미국, 중국 미진출=화이트스페이스; 클럽/랩이라 중국 R&B 수요와는 약간 거리 (중간-낮음)"
+      },
+      "notes":"IG 100만 육박으로 도달력 최강이나 APG(메이저)라 계약은 레이블 경유."
+    }
+  ]
+}

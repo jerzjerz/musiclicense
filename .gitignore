@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Secrets — never commit API keys
+.env
+.env.*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# Local preview/transient
+.claude/launch.json
+.claude/settings.local.json
+*.log
