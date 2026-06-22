@@ -16,14 +16,17 @@ import re
 import html
 import argparse
 
-# Display order + short labels for the six pickup criteria (matches score.py keys).
+# Display order + short labels for the four SCORED pickup criteria (matches score.py keys).
 CRITERIA = [
-    ("streaming", "Spotify 스트리밍"),
+    ("streaming", "스트리밍 (Spotify+글로벌)"),
     ("genre", "장르 적합성"),
-    ("label", "인디 vs 메이저"),
-    ("followers", "SNS 팔로워"),
+    ("followers", "SNS 팔로워 (IG)"),
     ("catalog", "카탈로그 + 반응"),
-    ("china", "중국 활동"),
+]
+# Qualitative reads — NOT scored, rendered as context only (matches score.py TAKE_LABELS).
+TAKES = [
+    ("label", "인디 vs 메이저"),
+    ("china", "중국 활동 가능성"),
 ]
 CONF_RE = re.compile(r"(높음|중간|낮음)")
 CONF_CLASS = {"높음": "hi", "중간": "mid", "낮음": "lo"}
@@ -114,6 +117,14 @@ h1{font-family:"Archivo",sans-serif; font-weight:800; font-size:clamp(30px,6vw,4
 .cell{min-width:0}
 
 /* ---- notes ---- */
+/* ---- non-scored takes (label / china) ---- */
+.takes{margin-top:14px; border-top:1px dashed var(--line); padding-top:12px}
+.takes .th{font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--muted); margin-bottom:8px}
+.take{display:grid; grid-template-columns:128px 1fr; gap:12px; padding:5px 0; font-size:13px}
+.take .tl{font-weight:600; color:var(--ink)}
+.take .tv{color:var(--muted)}
+
 .notes{margin-top:14px; background:#F4EFE6; border-left:3px solid var(--crimson);
   padding:11px 14px; border-radius:0 8px 8px 0; font-size:13.5px}
 .notes b{color:var(--crimson); font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
@@ -168,7 +179,7 @@ def render(data, lens="", date=""):
     out.append(f"<span><b>후보</b> {len(data.get('ranked', []))}명</span>")
     if date:
         out.append(f"<span><b>생성</b> {esc(date)}</span>")
-    out.append("<span><b>점수</b> 6기준 가중평균 0–100 · 전부 소프트(탈락 없음)</span>")
+    out.append("<span><b>점수</b> 4기준 가중평균 0–100 · 전부 소프트(탈락 없음)</span>")
     out.append("</div></header>")
 
     # criteria legend
@@ -243,6 +254,17 @@ def render(data, lens="", date=""):
         if a.get("missing"):
             miss = ", ".join(dict(CRITERIA).get(m, m) for m in a["missing"])
             out.append(f"<div class='striplab'>데이터 불명으로 점수 제외(가중치 재정규화): {esc(miss)}</div>")
+
+        # non-scored takes (label / china) — qualitative context, never a number
+        takes = a.get("takes", {}) or {}
+        take_rows = [(lab, takes[key]) for key, lab in TAKES if takes.get(key)]
+        if take_rows:
+            out.append("<div class='takes'>")
+            out.append("<div class='th'>참고 의견 · 점수 미반영</div>")
+            for lab, val in take_rows:
+                out.append(f"<div class='take'><div class='tl'>{esc(lab)}</div>"
+                           f"<div class='tv'>{esc(val)}</div></div>")
+            out.append("</div>")
 
         if a.get("notes"):
             out.append(f"<div class='notes'><b>맥락 코멘트</b>{esc(a['notes'])}</div>")

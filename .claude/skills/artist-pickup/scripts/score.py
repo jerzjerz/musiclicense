@@ -11,18 +11,22 @@ Input: a JSON object (file path as argv[1], or stdin) shaped like:
 {
   "label": "kpop-rnb-shortlist",            # optional, used in the report filename/title
   "weights": {                               # optional; defaults below
-    "streaming": 0.21, "genre": 0.21, "label": 0.21,
-    "followers": 0.14, "catalog": 0.14, "china": 0.07
+    "streaming": 0.30, "genre": 0.30,
+    "followers": 0.20, "catalog": 0.20
   },
   "artists": [
     {
       "name": "Artist Name",
       "subscores": {                         # 0-100 each; omit or null = "unknown" (criterion dropped, weights renormalized)
-        "streaming": 85, "genre": 90, "label": 80,
-        "followers": 70, "catalog": 60, "china": 50
+        "streaming": 85, "genre": 90,
+        "followers": 70, "catalog": 60
       },
       "stored": {"age": 27, "nationality": "USA"},   # optional; age is stored/displayed, never scored
       "evidence": {"streaming": "Spotify popularity 68; ~5.4M monthly listeners (Chartmetric, med confidence)"},
+      "takes": {                             # optional; qualitative reads, NOT scored — shown as context
+        "label": "독립 레이블 — 직접 계약 용이",
+        "china": "중국 활동 이력 불명, 검열 리스크 중립"
+      },
       "notes": "optional one-liner for the context comment"
     }
   ]
@@ -35,20 +39,23 @@ import sys
 import argparse
 
 DEFAULT_WEIGHTS = {
-    "streaming": 0.21,
-    "genre": 0.21,
-    "label": 0.21,
-    "followers": 0.14,
-    "catalog": 0.14,
-    "china": 0.07,
+    "streaming": 0.30,
+    "genre": 0.30,
+    "followers": 0.20,
+    "catalog": 0.20,
 }
 
 CRITERIA_LABELS = {
-    "streaming": "Spotify 스트리밍·지표",
+    "streaming": "스트리밍 (Spotify + 주요 글로벌 플랫폼)",
     "genre": "장르 적합성 (힙합/R&B/POP)",
-    "label": "인디 vs 메이저",
-    "followers": "SNS 팔로워 (IG/YT)",
+    "followers": "SNS 팔로워 (IG 중심)",
     "catalog": "카탈로그 규모 + 반응",
+}
+
+# Qualitative reads that inform the decision but are NOT scored. The model writes
+# a one-line "take" for each; the report shows them as context, never as a number.
+TAKE_LABELS = {
+    "label": "인디 vs 메이저",
     "china": "중국 활동 가능성",
 }
 
@@ -102,6 +109,7 @@ def rank(data):
             "missing": missing,
             "stored": art.get("stored") or {},
             "evidence": art.get("evidence") or {},
+            "takes": art.get("takes") or {},
             "notes": art.get("notes", ""),
         })
     ranked.sort(key=lambda a: a["composite"], reverse=True)
@@ -150,6 +158,19 @@ def render_markdown(result):
                     bits.append(f"{k} {v}")
             if bits:
                 lines.append(f"| _저장 항목_ | — | {', '.join(bits)} |")
+        # Non-scored takes (label / china): qualitative reads, shown as context only.
+        takes = a.get("takes") or {}
+        take_lines = []
+        for k in TAKE_LABELS:
+            if takes.get(k):
+                take_lines.append(f"- **{TAKE_LABELS[k]}**: {takes[k]}")
+        for k, v in takes.items():
+            if k not in TAKE_LABELS and v:
+                take_lines.append(f"- **{k}**: {v}")
+        if take_lines:
+            lines.append("")
+            lines.append("**참고 의견 (점수 미반영):**")
+            lines += take_lines
         if a["missing"]:
             miss = ", ".join(CRITERIA_LABELS.get(m, m) for m in a["missing"])
             lines.append("")
