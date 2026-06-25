@@ -1,0 +1,9 @@
+{
+  "name": "deal-proposal-renderer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Renders deal proposal .docx from a JSON deal spec using the deal-proposal design system.",
+  "dependencies": {
+    "docx": "^9.0.0"
+  }
+}

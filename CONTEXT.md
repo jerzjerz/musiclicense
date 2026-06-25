@@ -128,34 +128,52 @@ NetEase Cloud Music을 위한 **아티스트 발굴·평가·라이선스 인텔
 - **반영 파일**: `score.py`(DEFAULT_WEIGHTS·CRITERIA_LABELS·TAKE_LABELS·렌더), `render_html.py`(CRITERIA 4개·TAKES 섹션·헤더 "4기준"), `SKILL.md`(루브릭·입력계약·비점수 영역). 스모크 테스트 통과(가중치 재정규화·takes 렌더 확인).
 - 출처: 사용자 요청.
 
+### #007 (2026-06-23) — 딜 제안서 워크플로 신설 & `deal-proposal` 스킬 빌드
+- **맥락**: NetEase가 아티스트(가칭 "A")에게 보낼 **독점 솔로 EP 딜 제안서**(`proposal_reference.docx`)를 분석 → 정정 → 비전문가용 docx로 재조판 → 스킬화.
+- **두 기준 문서 신설** (`docs/`): 
+  - `deal-proposal-context.md` = 딜 *내용* 기준(확정 딜 구조·결정·전문 용어 정책·열린 질문).
+  - `deal-proposal-design-system.md` = *디자인/언어* 기준(컬러·타이포 토큰·컴포넌트·보이스).
+- **딜 내용 확정**(원본 대비 수정): ① 중국 독점 3년 + 2년 우선갱신권 ② EP 최소 4곡, **타이틀곡만** Amy Allen 공동 프로듀싱(원본 "4곡 전부"에서 축소 — 예산 현실성) ③ 마스터 **중국만** NetEase 소유, 글로벌은 레비뉴 셰어만 ④ MV 권리 **제외** ⑤ 브랜드/CF 딜 **제외** ⑥ 준거법=**중국 본토법+중국 중재** ⑦ 제작비 **$100,000 단일**(원본 10만/15만 충돌 해소) ⑧ 글로벌 셰어율 인하(마스터 미소유 반영: A 85%/B 75%, 싱크 80%/70% — 제안값) ⑨ Option A 리스크 문구 정정("아티스트 위험부담" → "advance never repaid").
+- **금융 구조 모델링 교훈**: Option A(선급 $250k recoupable·높은 셰어) vs B(MG $200k non-recoupable·낮은 셰어)는 **둘 다 합리적** — 저조 시 A, 중박 시 B, 대박 시 A 우위. "어느 게 좋다"가 아니라 기대 시나리오로 안내.
+- **디자인 방향 확정**: 출력=**docx 단독** / 톤=**프리미엄 라이트 에디토리얼**(세리프 Georgia 산문 + 산세리프 Arial 데이터 페어링) / 브랜딩=**중립 프리미엄**(NetEase 레드 강조 안 함, 모노크롬 잉크+버건디 액센트) / 언어=**쉽게 쓰되 MG·sync·perpetual 등 정확한 용어 그대로**(상세 설명은 대면).
+- **`deal-proposal` 스킬 신설** (`.claude/skills/deal-proposal/`): 기존 스킬 참고 없이 독립 신설. SKILL.md는 **시작 전 위 두 docs를 필수로 읽고** 그 기준을 따르도록 강제. 조판은 **JSON 딜 스펙 → docx 렌더러**(`scripts/build_proposal.js`, 디자인 토큰 내장=시스템 구현체) + 발송 전 정합성 체크리스트 6개 내장. 예시 입력 `examples/sample-deal.json`.
+- **산출물**: `reports/deal-proposal-v1-mockup.docx`(v1 시안, 플레이스홀더 `[ARTIST]`+글로벌 제안값). 렌더러로 동일 재현 검증.
+- **CLAUDE.md 갱신**: 톤앤매너에 "답변은 항상 사람이 이해하기 쉽고·구체적·직관적으로"(결론 먼저·추상어보다 구체값·직관적 구조·선택지엔 추천) 추가.
+- 출처: 사용자 요청(제안서 분석 → 다듬기 → 디자인 협의 → 스킬화) + 금융구조 모델링.
+
+### #008 (2026-06-26) — Tzuyu 제안서 = 승인된 **기본 양식/벤치마크** 확정 & 딜 구조 갱신
+- **벤치마크 승격**: Tzuyu 솔로 EP 제안서(0626판)를 **앞으로 모든 아티스트 피칭 자료의 기본 양식·벤치마크**로 확정. 기준 파일 `.claude/skills/deal-proposal/reference/deal-proposal-benchmark-tzuyu-2026-06-26.docx`, 재현 스펙 `data/tzuyu-input.json`, 클론 템플릿 `examples/sample-deal.json`(전부 이 구조로 갱신).
+- **7섹션 골격 표준화**: 01 Production(후크 인물) → **02 Marketing & Promotion(신설)** → 03 Deal Overview → 04 Financial(A/B) → 05 Revenue Share → 06 Key Terms → 07 Next Steps.
+- **딜 구조 갱신**(원본/#007 대비): ① 중국 독점 **3년→5년** + 2년 갱신권 ② **프로모션 섹션 신설**: NetEase OOH 빌보드 30개 도시(베이징·상하이·광저우 등), 빌보드당 ≈RMB 150k(≈USD 20k) ③ **레비뉴 셰어 전면 개편** — 운영비 선공제 후 분배 모델: 중국 정액 20%(실물 30%), 글로벌은 실 플랫폼/유통 수수료 공제; 분배는 **옵션 내 균일 — A 50/50, B 40/60** ④ **실물앨범 = 포토카드 필수 제작** 조항 신설.
+- **정합성 정정**: 0626 원본의 §05 note가 "스트리밍/싱크는 양 옵션 동일"이라고 적혀 있으나 B가 40/60으로 바뀌어 모순 → 벤치마크 스펙에서 "옵션 내 균일(A 50/50, B 40/60)"로 수정.
+- 출처: 사용자 요청("이 문서를 기억하고 벤치마킹·기본 양식으로, 푸시·커밋").
+
 ---
 
 ## 현재 상태 & 다음 세션 이어가기
-> **다음 세션은 이 섹션부터 읽으면 바로 이어갈 수 있다.** (최종 갱신: 2026-06-18)
+> **다음 세션은 이 섹션부터 읽으면 바로 이어갈 수 있다.** (최종 갱신: 2026-06-23)
 
 ### ✅ 지금까지 완성된 것
-- **방향 문서**: [CLAUDE.md](./CLAUDE.md)(HOW·톤앤매너·세션 종료 루틴), [CONTEXT.md](./CONTEXT.md)(WHAT/WHY·픽업 기준 정본·결정 로그 #001~#005).
-- **`artist-pickup` 스킬** (`.claude/skills/artist-pickup/`):
-  - `SKILL.md` — 워크플로·4기준 루브릭(+비점수 의견 2)·데이터 획득법(정보처→공식링크→insane-search/yt-dlp).
-  - `scripts/spotify.py` — Spotify fetch(stdlib, 키 없으면 웹서칭 fallback).
-  - `scripts/score.py` — 가중평균·티어·랭킹·마크다운 렌더(코어).
-  - `scripts/render_html.py` — scored JSON → HTML 검수 도시에(첫 딜리버리 출력).
-- **발굴 데이터**: `data/western-rising-2026.json`(서양권 5인, 채점 완료·영속).
-- **산출물**: `reports/`에 중화권 1차(md)·서양권(md+html).
-- **재현 파이프라인**: `data/<label>.json → score.py → render_html.py → reports/<label>.html`.
+- **방향 문서**: [CLAUDE.md](./CLAUDE.md)(HOW·톤앤매너+"쉽고·구체·직관" 원칙·세션 종료 루틴), [CONTEXT.md](./CONTEXT.md)(WHAT/WHY·결정 로그 #001~#007).
+- **`artist-pickup` 스킬** (`.claude/skills/artist-pickup/`): SKILL.md(4기준 루브릭+비점수 의견 2)·`spotify.py`·`score.py`(코어)·`render_html.py`(HTML 검수 도시에). 발굴 데이터·리포트 영속(`data/`·`reports/`).
+- **`deal-proposal` 스킬** (`.claude/skills/deal-proposal/`) — **이번 세션 신설**:
+  - `SKILL.md` — 시작 전 `docs/`의 두 기준 문서 필수 독해 + JSON→docx 워크플로 + 발송 전 정합성 체크리스트 6개.
+  - `scripts/build_proposal.js` — 딜 스펙(JSON) → docx 렌더러. 디자인 토큰 내장(=디자인 시스템 구현체). `npm install --prefix`로 docx 의존성.
+  - `examples/sample-deal.json` — 현재 딜(= v1 시안) 예시 입력.
+- **딜 제안서 기준 문서** (`docs/`): `deal-proposal-context.md`(딜 내용·결정·열린 질문), `deal-proposal-design-system.md`(디자인·언어 토큰).
+- **산출물**: `reports/deal-proposal-v1-mockup.docx`(v1 시안). 원본 `proposal_reference.docx`.
 
-### 🔧 다음 세션 TODO (사용자 지목 — 우선순위 높음)
-- **HTML 파일 형식 개선** — 현재 `render_html.py` 산출물의 구조/포맷 손볼 점 많음.
-- **데이터 포맷 개선** — `data/<label>.json` 스키마(필드·근거·신뢰도 표기 방식) 재설계.
-- **디자인·레이아웃 개선** — 검수 페이지 레이아웃 다듬기.
-  > ⚠️ 위 3개는 사용자가 "수정할 사항 많이 보인다"고만 했고 **구체 지시는 다음 세션에 받는다.** 먼저 무엇을 어떻게 바꿀지 물어볼 것.
+### 🔧 다음 세션 TODO
+- **딜 제안서 실데이터 1부**: `docs/deal-proposal-context.md` §5 열린 값 채우기 → ① 글로벌 셰어 제안값(A85/B75·싱크80/70) 최종 컨펌 ② 아티스트 **실명** ③ 세금/원천징수 한 줄 넣을지 ④ Amy Allen 타이틀곡 실견적·가용성 사내 확인. 채워지면 `examples/`를 복제·수정해 실전 docx 렌더.
+- **스킬 트리거 테스트**: "딜 제안서 만들어줘"류로 `deal-proposal`이 의도대로 발동하는지 확인.
+- **(이월) artist-pickup 개선 3종**: HTML 포맷·`data/<label>.json` 스키마·검수 레이아웃 — 구체 지시 받기 전 먼저 무엇을 바꿀지 물어볼 것.
 
-### 🗂️ 이월된 백로그 (이전 제안)
-- Khamari 라벨(메이저 여부) 재확인 — 순위 변동 가능.
-- Spotify API 키 세팅 → 스트리밍 절대수치 신뢰도 보강(현재 웹 기반 중·하).
-- 풀 확장 재발굴(서양권 10~15명).
-- 노션/엑셀 딜리버리 스킬(같은 파이프라인 패턴으로).
+### 🗂️ 이월된 백로그
+- LibreOffice 미설치 → docx 전체 페이지 PDF 프루프 자동 생성 불가(현재 QuickLook 표지 썸네일만). 필요 시 설치.
+- Spotify API 키 세팅(artist-pickup 스트리밍 신뢰도 보강).
+- 노션/엑셀 딜리버리 스킬(같은 분리 패턴).
 
 ### ❓ 열린 사실/주의
-- Spotify 키 미설정 상태 → 스트리밍·카탈로그 자동 fetch 미작동, 웹서칭 대체 중.
-- 서양권 5인 중 월청취 절대수치·일부 IG/나이 미확정(신뢰도 칩에 표기됨).
+- `deal-proposal` v1 시안은 **플레이스홀더 상태**: 아티스트=`[ARTIST]`, 글로벌 셰어=context §4-1 *제안값*(미확정). 실발송 전 반드시 확정.
+- 디자인 토큰을 바꿔야 하면 **`deal-proposal-design-system.md`를 먼저 고치고** 그 다음 `build_proposal.js`의 토큰 상수를 맞춘다(임의 손조판 금지).
+- Spotify 키 미설정 → artist-pickup 자동 fetch 미작동, 웹서칭 대체 중.

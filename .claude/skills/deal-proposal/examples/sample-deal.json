@@ -1,0 +1,584 @@
+{
+  "out": "reports/deal-proposal-[label].docx",
+  "meta": {
+    "confidentialLabel": "Strictly Private & Confidential",
+    "brandLabel": "NetEase Cloud Music",
+    "titleLines": [
+      "Exclusive Solo EP",
+      "Partnership Proposal"
+    ],
+    "footer": "Strictly Private & Confidential",
+    "infoLabelW": 2400,
+    "info": [
+      [
+        "Prepared For",
+        "[ARTIST] & Representative(s)"
+      ],
+      [
+        "Prepared By",
+        "NetEase Cloud Music Technology Co., Ltd."
+      ],
+      [
+        "Date",
+        "June 2026"
+      ],
+      [
+        "Subject",
+        "Exclusive Solo EP — China & Global Distribution"
+      ]
+    ]
+  },
+  "sections": [
+    {
+      "num": "01",
+      "title": "Production Partnership — Amy Allen",
+      "pageBreakBefore": true,
+      "lead": "NetEase funds the full production budget and brings two-time Grammy “Songwriter of the Year” Amy Allen to co-produce the EP’s title track.",
+      "blocks": [
+        {
+          "kind": "callout",
+          "lines": [
+            "Production Budget: USD 100,000, funded entirely by NetEase (inclusive of title-track production fee and studio costs).",
+            "Producer: Amy Allen — Grammy Award Winner, Songwriter of the Year 2025 & 2026.",
+            "EP Scope: minimum 4 songs; the title track is co-produced with Amy Allen, subject to her availability and scheduling."
+          ]
+        },
+        {
+          "kind": "h2",
+          "text": "About Amy Allen"
+        },
+        {
+          "kind": "para",
+          "text": "Amy Allen is one of the defining songwriting forces of modern pop. A two-time Grammy winner for Songwriter of the Year (Non-Classical) — the most prestigious individual songwriting honor in the industry — she has co-written some of the most commercially and critically successful songs of the past decade, spanning indie pop, K-pop, and mainstream global hits. Her style is known for emotional precision, melodic inevitability, and cross-cultural appeal."
+        },
+        {
+          "kind": "h2",
+          "text": "Grammy Recognition & Career Highlights"
+        },
+        {
+          "kind": "dataTable",
+          "headers": [
+            "Achievement",
+            "Detail"
+          ],
+          "colW": [
+            3400,
+            5780
+          ],
+          "rows": [
+            {
+              "cells": [
+                "Songwriter of the Year (2026)",
+                "2nd consecutive win; nominated for Song of the Year for “APT.” and “Manchild”"
+              ]
+            },
+            {
+              "cells": [
+                "Songwriter of the Year (2025)",
+                "First woman ever to win the category; first back-to-back winner in its history"
+              ]
+            },
+            {
+              "cells": [
+                "Album of the Year (2023)",
+                "Co-writer on Harry Styles’ Harry’s House"
+              ]
+            },
+            {
+              "cells": [
+                "Total Grammy Nominations",
+                "8 nominations across 4 years"
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "spacer",
+          "h": 120
+        },
+        {
+          "kind": "h2",
+          "text": "Selected Hits — The Amy Allen Catalog"
+        },
+        {
+          "kind": "dataTable",
+          "headers": [
+            "Song",
+            "Artist",
+            "Note"
+          ],
+          "colW": [
+            2400,
+            2600,
+            4180
+          ],
+          "rows": [
+            {
+              "cells": [
+                "Espresso",
+                "Sabrina Carpenter",
+                "Song of Summer 2024; global phenomenon"
+              ]
+            },
+            {
+              "cells": [
+                "Please Please Please",
+                "Sabrina Carpenter",
+                "No. 1 on Billboard Hot 100"
+              ]
+            },
+            {
+              "cells": [
+                "APT.",
+                "ROSÉ & Bruno Mars",
+                "K-pop / global pop crossover; Grammy SOTY nominee"
+              ]
+            },
+            {
+              "cells": [
+                "On the Ground",
+                "ROSÉ (BLACKPINK)",
+                "ROSÉ’s debut solo hit — K-pop solo precedent"
+              ]
+            },
+            {
+              "cells": [
+                "Adore You",
+                "Harry Styles",
+                "Global smash; multi-platinum"
+              ]
+            },
+            {
+              "cells": [
+                "Back to You",
+                "Selena Gomez",
+                "Over 1 billion Spotify streams"
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "spacer",
+          "h": 140
+        },
+        {
+          "kind": "h2",
+          "text": "Why Amy Allen for [ARTIST]"
+        },
+        {
+          "kind": "para",
+          "text": "Allen’s work with ROSÉ on “On the Ground” is proof of concept: she understands how to craft a K-pop solo breakout that resonates globally without compromising the artist’s identity. For NetEase, securing her involvement signals that this EP is built to compete at the highest global level."
+        },
+        {
+          "kind": "h2",
+          "text": "Our Production Guarantee"
+        },
+        {
+          "kind": "checklist",
+          "items": [
+            "Title track co-written and produced by Amy Allen.",
+            "USD 100,000 production budget funded entirely by NetEase.",
+            "Studio sessions scheduled in coordination with the Artist’s team.",
+            "Creative direction prioritizes [ARTIST]’s artistic identity and international audience.",
+            "NetEase facilitates introductions and scheduling with Amy Allen’s management."
+          ]
+        }
+      ]
+    },
+    {
+      "num": "02",
+      "title": "Marketing & Promotion",
+      "pageBreakBefore": true,
+      "lead": "Beyond production, NetEase commits its marketing platform — anchored by a nationwide out-of-home billboard campaign — to launch the EP at scale across China.",
+      "blocks": [
+        {
+          "kind": "callout",
+          "lines": [
+            "Out-of-home billboards across up to 30 major Chinese cities — including Beijing, Shanghai, and Guangzhou.",
+            "Per-billboard media value: approximately RMB 150,000 (≈ USD 20,000).",
+            "On top of NetEase Cloud Music’s own in-app promotion — editorial features, playlisting, and homepage placement."
+          ]
+        },
+        {
+          "kind": "h2",
+          "text": "Nationwide Billboard Campaign"
+        },
+        {
+          "kind": "para",
+          "text": "NetEase can deploy out-of-home (OOH) billboard advertising across up to 30 major Chinese cities, led by the three top-tier markets — Beijing, Shanghai, and Guangzhou — and extending into further first- and second-tier cities. Each flagship billboard placement carries an indicative media value of approximately RMB 150,000 (≈ USD 20,000), giving the EP high-visibility physical presence in the markets that matter most for a China-first launch."
+        },
+        {
+          "kind": "dataTable",
+          "headers": [
+            "Channel",
+            "Scope",
+            "Indicative Value"
+          ],
+          "colW": [
+            2600,
+            4080,
+            2500
+          ],
+          "rows": [
+            {
+              "cells": [
+                "Out-of-home billboards",
+                "Up to 30 major cities (Beijing, Shanghai, Guangzhou, +)",
+                "≈ RMB 150,000 / USD 20,000 per billboard"
+              ]
+            },
+            {
+              "cells": [
+                "Total billboard campaign",
+                "30-city flagship coverage",
+                "≈ RMB 4.5M / USD 600,000 (indicative)"
+              ]
+            },
+            {
+              "cells": [
+                "NetEase Cloud Music in-app",
+                "Editorial features, playlists, homepage placement",
+                "Included in partnership"
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "spacer",
+          "h": 120
+        },
+        {
+          "kind": "note",
+          "text": "Billboard figures are indicative media values and depend on final city selection, placement, and campaign timing, to be confirmed in the marketing plan. The 30-city total assumes one flagship billboard per city."
+        }
+      ]
+    },
+    {
+      "num": "03",
+      "title": "Deal Overview",
+      "pageBreakBefore": true,
+      "blocks": [
+        {
+          "kind": "infoTable",
+          "rows": [
+            [
+              "Project Type",
+              "Solo Extended Play (EP) — minimum 4 songs"
+            ],
+            [
+              "Artist",
+              "[ARTIST]"
+            ],
+            [
+              "Primary Territory",
+              "Mainland China (exclusive) + Global"
+            ],
+            [
+              "Platform Partner",
+              "Hangzhou NetEase Cloud Music Technology Co., Ltd."
+            ],
+            [
+              "China Exclusivity",
+              "5 years from release date, with 2-year right of first renewal"
+            ],
+            [
+              "Recording IP (Master)",
+              "Owned by NetEase in Mainland China only; outside China, revenue-share applies (no ownership transfer)"
+            ],
+            [
+              "Production Costs",
+              "Covered by NetEase (USD 100,000) — see Section 01"
+            ],
+            [
+              "Marketing Support",
+              "Nationwide billboard campaign (up to 30 cities) + NetEase in-app promotion — see Section 02"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "num": "04",
+      "title": "Financial Structure — Two Options",
+      "lead": "Choose one structure. Both are sound; the better fit depends on how the EP is expected to perform.",
+      "blocks": [
+        {
+          "kind": "optionCards",
+          "left": {
+            "label": "Option A — Advance Structure",
+            "figure": "$250,000",
+            "figureSub": "Recoupable advance",
+            "bullets": [
+              "Advance of USD 250,000, recoupable from royalties.",
+              "NetEase retains royalties until the advance is recouped.",
+              "If royalties never recoup, NetEase absorbs the shortfall — the advance is never repaid."
+            ]
+          },
+          "right": {
+            "label": "Option B — Minimum Guarantee",
+            "figure": "$200,000",
+            "figureSub": "Non-recoupable guarantee",
+            "bullets": [
+              "Minimum Guarantee of USD 200,000, non-recoupable.",
+              "Artist earns royalties from the first stream/sale; the MG is not deducted.",
+              "A guaranteed floor regardless of performance."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "num": "05",
+      "title": "Revenue Share",
+      "pageBreakBefore": true,
+      "lead": "Operating costs come off the top first; the remainder is split 50/50. The deduction differs by market and format.",
+      "blocks": [
+        {
+          "kind": "h2",
+          "text": "Option A — Advance Structure"
+        },
+        {
+          "kind": "dataTable",
+          "headers": [
+            "Revenue Type",
+            "Artist",
+            "NetEase"
+          ],
+          "colW": [
+            5580,
+            1800,
+            1800
+          ],
+          "rows": [
+            {
+              "band": "China — net of 20% operations cost"
+            },
+            {
+              "cells": [
+                "Streaming (Subscription)",
+                "50%",
+                "50%"
+              ]
+            },
+            {
+              "cells": [
+                "Sync / Licensing (of net)",
+                "50%",
+                "50%"
+              ]
+            },
+            {
+              "band": "Global — net of platform operations costs"
+            },
+            {
+              "cells": [
+                "Streaming (Spotify, Apple Music, etc.)",
+                "50%",
+                "50%"
+              ]
+            },
+            {
+              "cells": [
+                "Sync / Licensing (of net)",
+                "50%",
+                "50%"
+              ]
+            },
+            {
+              "band": "Album Sales — China & Global"
+            },
+            {
+              "cells": [
+                "Digital Album Sales (net of 20% operations cost)",
+                "50%",
+                "50%"
+              ]
+            },
+            {
+              "cells": [
+                "Physical Album Sales (net of 30% operations cost)",
+                "50%",
+                "50%"
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "spacer",
+          "h": 160
+        },
+        {
+          "kind": "h2",
+          "text": "Option B — Minimum Guarantee Structure"
+        },
+        {
+          "kind": "dataTable",
+          "headers": [
+            "Revenue Type",
+            "Artist",
+            "NetEase"
+          ],
+          "colW": [
+            5580,
+            1800,
+            1800
+          ],
+          "rows": [
+            {
+              "band": "China — net of 20% operations cost"
+            },
+            {
+              "cells": [
+                "Streaming (Subscription)",
+                "40%",
+                "60%"
+              ]
+            },
+            {
+              "cells": [
+                "Sync / Licensing (of net)",
+                "40%",
+                "60%"
+              ]
+            },
+            {
+              "band": "Global — net of platform operations costs"
+            },
+            {
+              "cells": [
+                "Streaming (Spotify, Apple Music, etc.)",
+                "40%",
+                "60%"
+              ]
+            },
+            {
+              "cells": [
+                "Sync / Licensing (of net)",
+                "40%",
+                "60%"
+              ]
+            },
+            {
+              "band": "Album Sales — China & Global"
+            },
+            {
+              "cells": [
+                "Digital Album Sales (net of 20% operations cost)",
+                "40%",
+                "60%"
+              ]
+            },
+            {
+              "cells": [
+                "Physical Album Sales (net of 30% operations cost)",
+                "40%",
+                "60%"
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "spacer",
+          "h": 120
+        },
+        {
+          "kind": "note",
+          "text": "“Operations cost” in China is a flat 20% (30% for physical albums). “Platform operations costs” on global streaming and sync are the actual distribution and DSP fees charged by third-party platforms, deducted before the split. The split is uniform within each option — 50/50 under Option A, 40/60 under Option B."
+        }
+      ]
+    },
+    {
+      "num": "06",
+      "title": "Key Terms & Conditions",
+      "pageBreakBefore": true,
+      "blocks": [
+        {
+          "kind": "infoTable",
+          "rows": [
+            [
+              "Exclusivity",
+              "5 years from China release date, plus a 2-year right of first renewal; no competing platforms (Tencent Music, QQ, Kugou, Kuwo) without prior written consent."
+            ],
+            [
+              "Recording IP (Master)",
+              "NetEase owns the master in Mainland China only. Outside China there is no ownership transfer; revenue-share applies (Section 05)."
+            ],
+            [
+              "Operations Costs",
+              "Deducted before the revenue split (Section 05): China a flat 20% (physical albums 30%); global streaming and sync net of actual platform/distributor fees."
+            ],
+            [
+              "Physical Album",
+              "Physical album production must include collectible photo cards (one or more per copy), produced as part of the physical album manufacturing."
+            ],
+            [
+              "Production Budget",
+              "USD 100,000 funded by NetEase; inclusive of Amy Allen’s title-track fee and studio costs."
+            ],
+            [
+              "Governing Law & Disputes",
+              "Governed by the laws of the People’s Republic of China; disputes resolved by arbitration seated in China."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "num": "07",
+      "title": "Proposed Next Steps",
+      "blocks": [
+        {
+          "kind": "dataTable",
+          "headers": [
+            "Step",
+            "Action",
+            "Responsible"
+          ],
+          "colW": [
+            900,
+            6080,
+            2200
+          ],
+          "rows": [
+            {
+              "cells": [
+                "1",
+                "Review proposal and select preferred deal structure (Option A or B)",
+                "Artist’s Team"
+              ]
+            },
+            {
+              "cells": [
+                "2",
+                "Introductory call / meeting with NetEase Business Team",
+                "Both Parties"
+              ]
+            },
+            {
+              "cells": [
+                "3",
+                "Legal review and term negotiation",
+                "Both Legal Teams"
+              ]
+            },
+            {
+              "cells": [
+                "4",
+                "Amy Allen scheduling & studio coordination",
+                "NetEase + Artist"
+              ]
+            },
+            {
+              "cells": [
+                "5",
+                "Agreement execution and project kickoff",
+                "Both Parties"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "footerNote": "This proposal is strictly confidential and intended solely for the named recipient. All figures are indicative and subject to final negotiation and legal documentation."
+}
