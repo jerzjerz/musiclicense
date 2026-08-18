@@ -20,3 +20,10 @@ Thumbs.db
 .claude/launch.json
 .claude/settings.local.json
 *.log
+
+# 출장비 정산 실데이터 — 레포가 PUBLIC이라 절대 커밋 금지 (결정 #014 / D1)
+# 템플릿 원본·복사본(숨김 시트에 사내 식별 토큰 포함), 영수증 이미지, 채워진 산출물
+data/expense/
+receipts/
+差旅报销*.xlsx
+~$*
