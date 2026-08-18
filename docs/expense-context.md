@@ -160,6 +160,29 @@ expenses/
 
 ---
 
+## 3-1. 영수증 PDF에서 글자를 꺼내는 법 *(2026-08-18 실측)*
+
+이 PC엔 파이썬도 poppler도 없다. 그래도 PDF는 읽힌다 — **유형에 따라 방법이 다르다.**
+
+| PDF 유형 | 방법 | 결과 |
+|---|---|---|
+| 영문 위주 (예: Trip.com 항공권) | **Word COM** — `Documents.Open` → `SaveAs2(path, 7)`(=`wdFormatUnicodeText`) | ✅ 그대로 읽힘 |
+| **한글 + CID 서브셋 폰트** (예: 카카오페이 거래확인증) | Word·Edge 헤드리스 **둘 다 실패** → `?`만 나오거나 백지 | ❌ |
+| 위와 같은 PDF | **`/ToUnicode` CMap을 직접 파싱** → 스크래치패드의 `pdftext.ps1` | ✅ 전문 복원 |
+
+**왜 Word가 실패하나**: 폰트가 `Identity-H` CID 서브셋(`ADJLLE+AppleSDGothicNeoR00`)이라 글리프 번호가 유니코드와 무관하다. 변환기가 매핑을 포기하면 전부 `?`가 된다. 하지만 PDF 안에 **`/ToUnicode` CMap이 같이 들어 있어서** 그걸 읽으면 복원된다.
+
+**`pdftext.ps1`이 하는 일** — ① 모든 스트림을 inflate ② `beginbfchar`/`beginbfrange`로 CID→유니코드 표 구성 ③ 본문의 `Tj`/`TJ` 피연산자를 2바이트씩 끊어 변환.
+
+**함정 2개 (같은 실수 반복 금지)**
+1. **`New-Object System.IO.MemoryStream($bytes, $off, $len)` 는 동작하지 않는다.** PowerShell이 `byte[]`를 인자 배열로 펼쳐버린다. → **`[System.IO.MemoryStream]::new(...)`** 를 쓴다.
+2. **`DeflateStream`은 스트림 끝에서 예외를 던진다** (deflate 데이터 뒤 `endstream` 앞의 잔여 바이트 때문). 예외를 잡되 **그때까지 읽은 바이트는 버리지 않는다.**
+3. 숫자·금액은 `<hex>`가 아니라 **리터럴 `(...)` 문자열**로 그려질 수 있다(PDFium 산출물). 8진 이스케이프까지 처리해야 금액이 나온다.
+
+**Edge 헤드리스 스크린샷은 안 된다** — `--headless=new --screenshot`으로 PDF를 열면 뷰어 플러그인이 없어 **백지 PNG**가 나온다. 시도하지 말 것.
+
+---
+
 ## 4. 값의 출처는 세 등급이다
 
 "채울 수 있다/없다"의 문제가 아니라 **값이 어디서 오느냐**의 문제다.
