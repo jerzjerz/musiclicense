@@ -27,3 +27,7 @@ data/expense/
 receipts/
 差旅报销*.xlsx
 ~$*
+
+# 출장비 정산 작업 폴더 — 영수증·완성 엑셀·봉인 템플릿 (결정 #016)
+# 레포가 PUBLIC이므로 통째로 차단한다. 규약 문서만 docs/ 에 커밋한다.
+expenses/
