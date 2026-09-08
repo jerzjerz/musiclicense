@@ -280,6 +280,7 @@ Excel 재저장본  <sheetData/>          ← 비어 있음
 
 - 타이베이 산출물 **3개 파일 전부** 같은 증상. 데이터 행은 멀쩡한데 토큰만 없어졌다.
 - ⚠️ **반례 1건** *(같은 날 발견)*: 옌타이 `个人餐费`(8/24 다운로드본)는 Excel에서 편집·저장된 뒤에도 **토큰이 살아 있었다.** 차이는 §7-4의 **저장 형태** — 소실된 3개는 `inlineStr`, 생존한 1개는 `sharedString`이었다. **Excel이 숨김 시트의 inline string을 버린다**는 가설이 서지만 표본이 각 1건씩이라 확정이 아니다. 운영 규칙(안 연다)은 그대로 유지한다.
+- ⚠️ **반례 2건째 — 위 가설이 깨졌다** *(2026-09-09, `Daily Reimbursement_Consumables_DAILY-2609.xlsx`)*: 이 파일은 봉인 템플릿에서 뽑아 **토큰이 `inlineStr`이었는데**, Excel 재저장 후에도 **살아남았다.** Excel이 `sharedStrings`로 옮겨 담았을 뿐이다(`_easeflow_import_info_` A1 = `<v>8</v>` → sharedStrings 8번 = 토큰). 즉 **「inlineStr이면 버려진다」는 가설은 성립하지 않는다.** 무엇이 소실을 가르는지는 여전히 모른다 — 남은 후보는 Excel 버전·파일 복구(`<fileRecoveryPr repairLoad="1"/>`가 이 파일엔 붙어 있다)·양식 계열 차이. **표본 3:2로 갈렸으니 결론을 내리지 않는다.**
 - **운영 규칙**: **완성된 정산 엑셀을 Excel로 열지 않는다.** 확인이 필요하면 읽기 전용으로 열고 **절대 저장하지 않는다.** 실수로 저장했으면 **백지 템플릿에 행을 다시 주입**해서 새로 만든다.
 - `tools/xlsx-addrows.ps1`·`xlsx-clearrows.ps1`는 zip을 직접 조작해 이 문제가 없다 (`xlsx-clearrows.ps1` 주석에 "sharedStrings is left untouched on purpose" 로 명시돼 있다).
 
