@@ -307,6 +307,8 @@ Excel 재저장본  <sheetData/>          ← 비어 있음
 
 즉 D14의 근거는 `个人餐费` 한 쌍뿐이다. **「다운로드마다 랜덤」인지 「정산서마다 고유」인지 가릴 수 없다.** 후자라면 재사용 시 엉뚱한 정산서에 행이 들어갈 수 있다 — 첫 업로드로 판별한다.
 
+> **🔄 2026-10-15 새 관측 — 「다운로드마다 랜덤」은 아니다.** 같은 날 14분 간격으로 받은 두 파일(`Daily Reimbursement_Entertainment_20261015_20` 08:13 UTC · `日常报销_业务招待费_20261015_78` 08:27 UTC)의 토큰이 **`gRUhVV7Dd3MdAM8G1F1MIg==`로 동일**하다 — 헤더 언어가 달라도 같다. 반면 9/14에 받은 같은 양식(`日常报销_业务招待费_20260914_12`)은 `vl+Mv5MIg4…`로 **다르다.** → 토큰은 다운로드 단위가 아니라 **정산서(`报销单`) 단위(또는 그날 연 정산서 세션 단위)** 로 보인다. §9-1의 「같은 정산서 안의 다른 탭인지」도 이걸로 **확정** — 같은 정산서, 같은 항목, 언어 표시만 다른 두 다운로드다. 아직 **서버 통과로 실증된 건 아니다.**
+
 ---
 
 ## 8. `Daily Reimbursement` 양식 2종 — 출장이 아닌 상시 근무 비용 *(2026-08-31 실측)*
@@ -425,6 +427,7 @@ Daily Local_transportation               :  …      │ D=금액 │ E=통화
 - 토큰은 `_easeflow_import_info_` A1 → **sharedStrings** 참조(§7-4의 두 번째 방식). 헤더 6개도 sharedStrings다.
 - **받아온 원본이 이미 Excel로 한 번 저장돼 있었다** — 생성기는 `Apache POI`(`docProps/core.xml`)인데 `theme1.xml`·`xr:revisionPtr`·OneDrive `absPath`가 붙어 있다. 생성 34초 뒤 저장. **토큰은 살아 있다** → D32 계열 사례 1건 추가. 서버가 받아주는지는 미검증.
 - 봉인본: `expenses/_templates/日常报销_业务招待费_BLANK.xlsx`
+- **🔄 2026-10-15 봉인본 교체** — 사용자가 다시 받아온 `日常报销_业务招待费_20261015_78.xlsx`(서버 원본 그대로 · inlineStr 토큰 `gRUhVV7Dd3…` · Excel 저장 흔적 없음)로 `_BLANK.xlsx`를 바꿨다. 9/14본(Excel 저장본 · 토큰 `vl+Mv5MIg4…`)은 `日常报销_业务招待费_BLANK_20260914-excelsaved.xlsx`로 이름만 바꿔 보관. **새 봉인본의 토큰은 §11 영어판과 동일**하다(§7-5).
 
 ---
 
@@ -507,6 +510,7 @@ Daily Local_transportation               :  …      │ D=금액 │ E=통화
 - 공통 골격 그대로 — 3시트(`Entertainment` + 숨김 `Entertainment_dict`(비어 있음) + `_easeflow_import_info_`) · 데이터 열 전부 텍스트(`numFmtId=49`) · 2행부터 · `cellXfs` 1~6 = 데이터, 7~12 = 헤더(분홍 채움) · `<cols>` 열 N → 스타일 N → `tools/xlsx-addrows.ps1`의 `s="{열번호}"` 가정이 맞는다.
 - **토큰은 inlineStr 24자, 서버 원본 그대로**(`Apache POI` 생성, `sharedStrings.xml`이 `count="0"`으로 비어 있음, Excel 저장 흔적 없음). §9-4의 봉인본(Excel 저장본)보다 깨끗하다.
 - 봉인본: `expenses/_templates/Daily Reimbursement_Entertainment_BLANK.xlsx` (Downloads 원본과 MD5 동일 · 봉인 템플릿 **9종 → 10종**).
+- ✅ **같은 양식임이 확정됐다 (2026-10-15, 14분 뒤 받은 중국어판과 대조)** — 사용자가 같은 날 `日常报销_业务招待费_20261015_78.xlsx`도 받아왔는데 **토큰이 `gRUhVV7Dd3MdAM8G1F1MIg==`로 동일**하고 `styles.xml`은 바이트 단위로 같다. 다른 파트는 `workbook.xml`(시트명 `Entertainment` ↔ `业务招待费`)·`sheet1.xml`(헤더 언어·열 너비)·`core.xml`(생성 시각)뿐. **같은 정산서의 같은 항목을 언어 설정만 달리 받은 것**이다 → 영어판·중국어판 어느 쪽으로 뽑아도 서버 입장에선 같은 파일이다.
 
 ### 11-2. 컬럼 — 6열
 
