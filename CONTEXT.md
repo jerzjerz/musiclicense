@@ -378,6 +378,7 @@ NetEase Cloud Music을 위한 **아티스트 발굴·평가·라이선스 인텔
 - **축 하나**: *곡 제작비를 누가 먼저 내고, 그 대가로 NCM이 뭘 내주나*. Route 1 = **zero upfront**(상대가 작가 buy-out으로 제작비 전액 부담, NCM은 마스터·중국 유통을 갖고 작곡/해외 유통 쪽을 내줌). Route 2·3은 **미정** — 기존 송캠프 자료(#024 이전 10/14 포맷·상대 레이블 카드)는 그쪽 재료로만 쓴다.
 - **형식**: PPTX, PowerPoint COM 빌드(`_build_deck.ps1` + `deck_content.json`, MV 투자 덱 복제). HTML로 갔다가 되돌림 — 사내 덱은 팀이 직접 고쳐 돌리므로. 하우스 스타일(흰 배경·크림슨·YaHei·로고) + 당사자 색(NCM 크림슨/상대 네이비/작가 회색).
 - **템플릿 = 루트당 4장** (Structure 분할 바 · Money & rights flow 3자 화살표 · Who's in 작가 타일 · For NCM 3열) + 공통 Cover·Routes at a glance·Decision. 루트 추가 = JSON 블록 + 스크립트 `$ROUTES` 키 1개. v0.1 7장 산출.
+- **같은 날 v0.2로 축약 — 7장 → 5장.** 사용자: "슬라이드가 반복된다." 같은 사실이 세 번씩 나오고 있었다(권리 분할이 glance·structure·flow·for-NCM에, 3자 역할이 flow·who에, 미정 항목이 for-NCM·decision에). **루트당 2장**(Structure & Cost: 분할 바 + 비용 띠 / Who's in: 작가 타일만) + Decision(Get/Give 2열 + Ask + 가이드라인). 교훈: 덱은 **한 사실은 한 번만** — 장마다 "이 장에서만 말하는 것"이 있어야 한다. R2·R3가 붙으면 Decision 앞에 3안 비교 1장(3루트 덱 10장).
 - **Decision 장의 요구**: 실행 승인이 아니라 **"Route 1을 협상 개시 기본안으로 승인" + 가이드라인 3개**(해외 유통 수수료 상한 · 해외 유통 기간 · 퍼블리싱 하한). 3안 비교는 R2·R3가 붙은 뒤.
 - **빌드 교훈**: Write 도구는 `XXXX`를 실제 문자로 풀어 쓴다 → ASCII-only PS1에 CJK 정규식을 넣을 땐 perl로 재기입. COM `BoundHeight`/`Top` 산술은 `[double]`/`[single]` 명시 캐스팅 없이는 *Specified cast is not valid*. 칩 폭은 AutoSize 대신 `BoundWidth + 여백`으로 직접 잡는다(AutoSize 폭은 즉시 반영 안 됨).
 
