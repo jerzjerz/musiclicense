@@ -539,3 +539,39 @@ Daily Local_transportation               :  …      │ D=금액 │ E=통화
 | 시트명 | `业务招待费` | `Entertainment` |
 | 토큰 저장 | sharedString (Excel 저장본) | **inlineStr** (서버 원본) |
 | 토큰 값 | `vl+Mv5MIg4…` | `gRUhVV7Dd3…` — **다르다** |
+
+---
+
+## 12. `Daily Reimbursement_Others` (일상_기타) — 구독·툴 등 4종 밖 비용 *(2026-11-11 실측)*
+
+사용자가 11월 Daily 정산서에서 받아온 원본 1개(`Daily Reimbursement_Others_20261111_21.xlsx`)를 뜯어 확인했다. 쓰는 규칙은 → [expense-context.md D43](./expense-context.md)
+
+### 12-1. 결론 먼저
+
+- **5열. 유일하게 A열이 드롭다운**이다(`Others_dict0` = 숨김 시트 `Others_dict!$A$1:$A$4`, `dataValidation type="list"` sqref `A2:A65534`, 틀리면 `此值与单元格定义格式不一致！`로 막힌다).
+- 공통 골격 그대로 — 3시트(`Others` + 숨김 `Others_dict` + `_easeflow_import_info_`) · 데이터 열 전부 텍스트(`numFmtId=49`) · 2행부터 · `cellXfs` 1~5 = 데이터, 6~10 = 헤더 · `<cols>` 열 N → 스타일 N → `tools/xlsx-addrows.ps1` 그대로 쓴다.
+- 토큰 `yr0EdChBZgLkyAf4/saoqQ==`(inlineStr, Apache POI 원본). 봉인본 `_templates/Daily Reimbursement_Others_BLANK.xlsx`.
+- **엑셀에 없는 칸이 화면엔 있다** — `Invoice`(첨부: 사용자는 `无标题.txt`를 올린다) · `Exchange Rate` · `Amount (CNY)`(자동 계산) · `Supporting Materials of Large Expenses`(첨부). 즉 **환율·CNY는 우리가 계산하지 않는다.**
+
+### 12-2. 컬럼 — 5열
+
+| 열 | 헤더 원문 | 한국어 | 필수 | 너비 | 입력값 |
+|---|---|---|---|---|---|
+| **A** | `*Reimbursement Type` | 정산 유형 | ✅ | 31 | **드롭다운 4종** (아래 표) — Anthropic 구독은 `专业及技术费用` |
+| B | `*Expense Date` | 발생일자 | ✅ | 23 | `YYYY-MM-DD` — 영수증 `Date paid` |
+| C | `*Currency` | 통화 | ✅ | 17 | `USD-美元` (§4 표기) |
+| D | `*Reimbursement Amount (Original Currency)` | 정산 금액(원래 통화) | ✅ | 63 | 숫자 문자열, 소수 둘째 자리 `110.00` |
+| E | `*Description` | 상세 설명 | ✅ | 21 | 자유 입력 (영문) |
+
+### 12-3. A열 드롭다운 — `Others_dict` 원문 그대로
+
+| 값 (원문) | 뜻 | 쓰임 |
+|---|---|---|
+| `搬运费` | 운반비 | — |
+| `维修费` | 수리비 | — |
+| `专业及技术费用` | 전문 및 기술 비용 | **Anthropic 등 AI·툴 구독** (사용자 캡처 2026-11-11) |
+| `其他` | 기타 | — |
+
+### 12-4. 첫 적용
+
+`Daily 202611` — Anthropic Claude Max 11월(invoice `MX6BPFKB-0008` · receipt `2994-4821-7541`, 2026-11-01, USD 110.00) 1행. 사용자 화면 캡처의 5값과 동일하게 주입.
