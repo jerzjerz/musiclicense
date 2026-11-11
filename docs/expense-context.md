@@ -724,7 +724,7 @@ Daily {YYYYMM}/
 - **화면 입력 패턴(사용자 캡처 2026-11-11, 그대로 따른다)**: A `专业及技术费用`(전문·기술 비용) · B = 결제일(`Date paid`, D28) · C `USD-美元` · D `110.00`(소수 둘째 자리) · E 영문 설명 *"Monthly subscription fee to use tools to enhance workflow as well as learning how to use tools that are not available in China"*. 화면 전용 칸: `Invoice`에 `无标题.txt`(D41의 마커가 여기 쓰인다), `Supporting Materials of Large Expenses`에 invoice·receipt PDF 2장, `Exchange Rate`·`Amount (CNY)`는 자동.
 - **한 구독 = 증빙 2장(invoice·receipt) = 엑셀 1행.** 파일명은 D39에 `_invoice`/`_receipt` 꼬리표, 도시 자리는 `Online`.
 - **매달 반복**: Daily 폴더를 만들 때 `others/`도 같이 만들고, 그달 Anthropic 영수증이 오면 같은 값(유형·설명)으로 1행 뽑는다. 금액·날짜만 영수증에서 읽는다.
-- ⚠️ **소급은 사용자 결정 몫** — `Daily 202610/AI/`(10-01 $110)·루트 Receipt 2장(8-16 $22 · 9-01 $99.58)이 미처리 상태로 남아 있다. 11-11 현재 묻는 중.
+- ✅ **소급하지 않는다 (2026-11-11 사용자 확정: "11월부터만")** — `Daily 202610/AI/`(10-01 $110)·루트 Receipt 2장(8-16 $22 · 9-01 $99.58)은 그대로 둔다. 기타 양식 적용은 `Daily 202611`이 첫 달이다.
 
 ---
 
