@@ -390,6 +390,12 @@ NetEase Cloud Music을 위한 **아티스트 발굴·평가·라이선스 인텔
 - **원칙**: 견적 없는 수치·법무 미확인 문구는 본문에 ★로 남겨 업로드 전 치환. 정본(중국어 본문 + 한국어 대조 브리프)은 **레포 밖** `Desktopmaterialsmv-budget-request` — 금액·제작사·계약 조건 포함이라 커밋 금지.
 - 출처: 사용자 요청(2026-11-17).
 
+### #028 (2026-11-17) — **MV 기획안(컨셉 덱)은 Achilles 기획안 틀을 기본으로** — 첫 적용 LIGHTS
+- **맥락**: 제작사 Achilles의 JOSHUA 《24hours》 M/V Concept Proposal(38쪽)이 "이런 퀄리티로 정리하고 싶다"는 기준이 됨. 같은 날 Visual Track(Sunny Lee)이 보낸 LIGHTS 프리비주얼(2:47 애니매틱, 자막 = NCM 아이디어/감독 제안)을 이 틀로 옮겨 15쪽 덱을 만듦.
+- **결정**: 페이지 순서(Cover → Divider → Overview → Keyword → Structure → 키워드별 상세 → Device → Shot List → Check → Animatic → E.O.D)와 룩(검정+노랑 한 색, 영문 이탤릭 디스플레이)을 [docs/mv-concept-deck-template.md](./docs/mv-concept-deck-template.md)에 고정. 앞으로 MV 컨셉·콘티 정리는 이 틀을 그대로 따름.
+- **원칙**: 감독·제작사 문구는 한국어 뜻 + 원문 병기, 아이디어 출처(누구 제안인지)를 표에 남김. 기존 정본(시놉시스)과의 차이는 CHECK 페이지로 드러내고 덱 안에서 합치지 않음. 레퍼런스 이미지·덱 소스는 레포 밖 `materials/`(커밋 금지).
+- 출처: 사용자 요청(2026-11-17).
+
 ## 현재 상태 & 다음 세션 이어가기
 > **다음 세션은 이 섹션부터 읽으면 바로 이어갈 수 있다.** (최종 갱신: **2026-10-15**)
 
